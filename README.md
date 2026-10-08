@@ -100,6 +100,7 @@ If you prefer to build the architecture yourself or want to understand exactly h
 {
   "input_text": "This is a test run."
 }
+```
 
 * Click **Review**, then click **Next**.
 * Under **Select Sample Response Method**, select **Use Example Response** and click **Next**.
