@@ -4,7 +4,7 @@ Filter and route customer service tickets using IndieML via Salesforce Flow's na
 
 ## Prerequisite: Request API Key
 Before starting, you need an API key to authenticate the connection.
-Click [here](https://indieml.app/#api-key) to get your free API key. Copy the key and keep it handy for the configuration step.
+Click [here](https://indieml.app/#api-key) to get your free IndieML API key. Copy the key and keep it handy for the configuration step.
 
 ---
 
