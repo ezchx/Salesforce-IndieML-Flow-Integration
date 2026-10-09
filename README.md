@@ -78,6 +78,14 @@ If you prefer to build the architecture yourself or want to understand exactly h
 * Select `IndieML-ApiKey` from the Available list and click **Add** to transfer it to the Enabled list.
 * Click **Save**.
 
+### Phase 2: Granting User Access (Permissions)
+*Note: The user triggering the Flow must have access to the External Credential Principal, or the callout will fail silently.*
+* Navigate to **Quick Find** and search for **Profiles** (or **Permission Sets**).
+* Select **System Administrator** (and any other profile that will trigger this Flow).
+* Click **Enabled External Credential Principal Access** and click **Edit**.
+* Select `IndieML-ApiKey` from the Available list and click **Add** to transfer it to the Enabled list.
+* Click **Save**.
+
 ### Phase 3: The "Hello World" Sandbox Flow
 
 **1. Create the Callout Action**
