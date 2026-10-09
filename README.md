@@ -187,7 +187,7 @@ Because this unmanaged package deploys native, standard Salesforce metadata, you
 
 ### 4. Update the Custom Header (If Required)
 Different APIs expect different authorization headers (e.g., `Authorization` vs `X-API-Key`).
-* Still on the `IndieML` External Credential page, scroll down to the **Custom Headers** section.
+* From the `IndieML` External Credential page, scroll down to the **Custom Headers** section.
 * Click the dropdown arrow next to the existing `X-API-Key` header and select **Edit** (or delete it and click **New**).
 * **Name:** Enter the header name your new API expects (e.g., `Authorization`).
 * **Value:** Update the formula to match the expected format. For example, if your API requires a Bearer token, you would write: `Bearer {!$Credential.IndieML.ApiKey}`
