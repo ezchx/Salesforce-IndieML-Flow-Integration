@@ -153,21 +153,13 @@ You will now be back on the Main Flow Builder screen.
 ---
 
 ## Addendum 1: Adapting the flow to a Live Pipeline
-* Create a **Record-Triggered Flow** instead of an Autolaunched Flow (e.g., triggered when a `Case` is created).
-* In your Assignment block, map the `requestPayload > input_text` variable directly to `{!$Record.Description}` to ingest live customer tickets.
-* Add a **Decision** block after the HTTP Callout to evaluate the score (e.g., `Outputs from Call_Indie_ML_API > 2XX > result > substance_score` is **Less Than** `0.30`).
-* Use standard Salesforce actions to auto-tag, reprioritize, or deflect the case based on the branch outcome.
-
----
-
-## Addendum 1: Adapting the flow to a Live Pipeline
 When moving from the autolaunched sandbox to a live production environment, keep these enterprise architecture rules in mind:
 
 * **Use an Asynchronous Path:** A Record-Triggered Flow cannot make an HTTP Callout on the immediate execution path. You must configure the Flow to run asynchronously (e.g., using a "Run Asynchronously" path) so the callout doesn't block the record save transaction.
 * **Map Live Data:** In your Assignment block, map the `requestPayload > input_text` variable directly to `{!$Record.Description}` to ingest live customer tickets.
 * **Build a Fault Path:** External APIs can timeout or return 401/500 errors. Always drag a **Fault Path** off your HTTP Callout element to handle exceptions gracefully (e.g., log an error record or send an alert) so the Flow doesn't crash the interview.
 * **Evaluate the Score:** Add a **Decision** block after the HTTP Callout to evaluate the score (e.g., `Outputs from Call_Indie_ML_API > 2XX > result > substance_score` is **Less Than** `0.30`).
-* **Mind the Bulk Limits:** Record-triggered flows execute an interview per record. If you mass-update hundreds of Cases via Data Loader, it will fire hundreds of individual HTTP callouts. Ensure your API rate limits (and Salesforce's outbound callout limits) can handle your expected bulk transaction volume.
+* **Manage Bulk Limits:** Record-triggered flows execute an interview per record. If you mass-update hundreds of Cases via Data Loader, it will fire hundreds of individual HTTP callouts. Ensure your API rate limits (and Salesforce's outbound callout limits) can handle your expected bulk transaction volume.
 
 ---
 
